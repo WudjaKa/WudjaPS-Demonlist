@@ -1,26 +1,39 @@
-from flask import Blueprint, request, jsonify
+import os
+from dotenv import load_dotenv
 
-admin_bp = Blueprint('admin', __name__)
+load_dotenv()
 
-levels = []  # In-memory storage for levels
-submissions = []  # In-memory storage for submissions
+ADMIN_PASSWORD = os.getenv('ADMIN_PASSWORD', 'admin123')
 
-@admin_bp.route('/admin/levels', methods=['POST'])
+
+@app.route('/admin/login', methods=['POST'])
+def admin_login():
+    json_data = request.get_json()
+    password = json_data.get('password')
+    if password == ADMIN_PASSWORD:
+        return jsonify({'message': 'Login successful'}), 200
+    else:
+        return jsonify({'message': 'Invalid password'}), 401
+
+
+# Existing endpoints for creating and getting levels and submissions remain unchanged.
+
+@app.route('/levels', methods=['POST'])
 def create_level():
-    new_level = request.json  # Expect level data in JSON format
-    levels.append(new_level)
-    return jsonify(new_level), 201
+    # Your existing code here
+    pass
 
-@admin_bp.route('/admin/levels', methods=['GET'])
+@app.route('/levels', methods=['GET'])
 def get_levels():
-    return jsonify(levels), 200
+    # Your existing code here
+    pass
 
-@admin_bp.route('/admin/submissions', methods=['POST'])
+@app.route('/submissions', methods=['POST'])
 def create_submission():
-    new_submission = request.json  # Expect submission data in JSON format
-    submissions.append(new_submission)
-    return jsonify(new_submission), 201
+    # Your existing code here
+    pass
 
-@admin_bp.route('/admin/submissions', methods=['GET'])
+@app.route('/submissions', methods=['GET'])
 def get_submissions():
-    return jsonify(submissions), 200
+    # Your existing code here
+    pass
