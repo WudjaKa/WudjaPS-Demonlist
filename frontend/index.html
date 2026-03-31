@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WudjaPS Demonlist</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>WudjaPS Demonlist</h1>
+            <nav>
+                <a href="index.html" class="active">Leaderboard</a>
+                <a href="submit.html">Submit</a>
+                <a href="admin.html">Admin</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="filters">
+                <h2>Leaderboard</h2>
+                <div class="filter-controls">
+                    <label for="sort">Sort by:</label>
+                    <select id="sort">
+                        <option value="points">Points</option>
+                        <option value="username">Username</option>
+                    </select>
+
+                    <label for="order">Order:</label>
+                    <select id="order">
+                        <option value="desc">Descending</option>
+                        <option value="asc">Ascending</option>
+                    </select>
+
+                    <button id="filter-btn">Apply Filters</button>
+                </div>
+            </section>
+
+            <section class="leaderboard">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Username</th>
+                            <th>Points</th>
+                            <th>Completions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboard-body">
+                        <tr>
+                            <td colspan="4" class="loading">Loading...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 WudjaPS Demonlist. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="js/leaderboard.js"></script>
+</body>
+</html>
