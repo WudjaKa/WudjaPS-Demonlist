@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Run Submission Form</title>
+</head>
+<body>
+    <h1>Submit Your Run</h1>
+    <form action="/submit-run" method="POST">
+        <label for="runner-name">Name:</label>
+        <input type="text" id="runner-name" name="runner-name" required>
+
+        <label for="run-time">Run Time (in seconds):</label>
+        <input type="number" id="run-time" name="run-time" required>
+
+        <label for="run-date">Run Date:</label>
+        <input type="date" id="run-date" name="run-date" required>
+
+        <label for="run-category">Run Category:</label>
+        <select id="run-category" name="run-category">
+            <option value="any">Any</option>
+            <option value="speedrun">Speedrun</option>
+            <option value="casual">Casual Play</option>
+        </select>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
